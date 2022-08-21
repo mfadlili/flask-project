@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Kelas 9A</h1>
+<p>Berikut adalah nama-nama siswa kelas 9A</p>
+{% for id, nama in list_nama.items()%}
+<p>{{id}}. <a href="/{{id}}">{{nama | title}}</a></p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Biodata Siswa</h1>
+<p>Nama Lengkap  : {{fullname | title}}</p>
+<p>Alamat        : {{address | title}}</p>
+<p>Jenis Kelamin : {{sex | title}}</p>
+<h3>Pelanggaran</h3>
+{% endblock %}
