@@ -5,4 +5,15 @@
 <p>Alamat        : {{address | title}}</p>
 <p>Jenis Kelamin : {{sex | title}}</p>
 <h3>Pelanggaran</h3>
+<p>Berikut adalah pelanggaran yang telah dilakukan siswa:</p>
+    <ol>{% for i in violation%}
+        <li>{{i}}</li>
+    {% endfor %}</ol>
+
+<h3>Input Pelanggaran</h3>
+    <form method="POST">
+    {{template_form.hidden_tag()}}
+    <p>{{template_form.students_violation.label}} : {{template_form.students_violation()}}</p>
+    <p>{{template_form.submit_form_2()}}</p>
+    </form>
 {% endblock %}
