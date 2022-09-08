@@ -1,19 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 <h1>Biodata Siswa</h1>
-<p>Nama Lengkap  : {{fullname | title}}</p>
-<p>Alamat        : {{address | title}}</p>
-<p>Jenis Kelamin : {{sex | title}}</p>
+<h3><pre>Nama Lengkap  : {{fullname | title}}</pre></h3>
+<h3><pre>Alamat        : {{address | title}}</pre></h3>
+<h3><pre>Jenis Kelamin : {{sex | title}}</pre></h3>
 <h3>Pelanggaran</h3>
-<p>Berikut adalah pelanggaran yang telah dilakukan siswa:</p>
-    <ol>{% for i in violation%}
-        <li>{{i}}</li>
+{% if current_user.is_authenticated %}
+{% if violation %}
+<p>Berikut adalah pelanggaran yang telah dilakukan {{name | title}}:</p>
+    <ol>{% for id, type in violation.items()%}
+        <li>{{type}} <a href="{{url_for('delete_violation', id=id)}}">[delete]</a></li>
     {% endfor %}</ol>
+<p>Point pelanggaran {{name | title}} sebesar {{point_student}}. </p>
+{% else %}
+<p>{{name | title}} belum pernah melakukan pelanggaran.</p>
+{% endif %}
 
 <h3>Input Pelanggaran</h3>
     <form method="POST">
     {{template_form.hidden_tag()}}
     <p>{{template_form.students_violation.label}} : {{template_form.students_violation()}}</p>
+    <p>{{template_form.setudent_add_point.label}} : {{template_form.setudent_add_point()}}</p>
     <p>{{template_form.submit_form_2()}}</p>
     </form>
+{% else %}
+{% if violation %}
+<p>Berikut adalah pelanggaran yang telah dilakukan {{name | title}}:</p>
+    <ol>{% for id, type in violation.items()%}
+        <li>{{type}} </li>
+    {% endfor %}</ol>
+<p>Point pelanggaran {{name | title}} sebesar {{point_student}}. </p>
+{% else %}
+<p>{{name | title}} belum pernah melakukan pelanggaran.</p>
+{% endif %}
+{% endif %}
 {% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Form Hapus Siswa</h1>
+<form action="/delete_students" method="POST">
+    {{template_form.hidden_tag()}}
+    <p>{{template_form.id_delete.label}} : {{template_form.id_delete()}}</p>
+    <p>{{template_form.submit_form_2()}}</p>
+</form>
+{% endblock %}

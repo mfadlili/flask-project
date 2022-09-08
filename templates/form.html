@@ -1,15 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Form Tambah Siswa 1</h1>
+<h1>Form Tambah Siswa</h1>
 <form action="/form" method="POST">
     {{template_form.hidden_tag()}}
-    <p>{{template_form.students_name.label}} : {{template_form.students_name()}}</p>
-    <p>{{template_form.students_fullname.label}} : {{template_form.students_fullname()}}</p>
-    <tr>Jenis Kelamin : {% for btn in template_form.students_gender %} 
-        <td>{{ btn }}</td>
-        <td>{{ btn.label }}</td>
+    <h3><pre>{{template_form.students_name.label}} : {{template_form.students_name()}}</pre></h3>
+    <h3><pre>{{template_form.students_fullname.label}}   : {{template_form.students_fullname()}}</pre></h3>
+    <tr><h3><pre>Jenis Kelamin  : </pre></h3> {% for btn in template_form.students_gender %} 
+        <pre>                   <td>{{ btn }}</td> <td>{{ btn.label }}</td></pre>
         {% endfor %}</tr>
-    <p>{{template_form.students_address.label}} : {{template_form.students_address()}}</p>
-    <p>{{template_form.submit_form()}}</p>
+    <h3><pre>{{template_form.students_address.label}}        : {{template_form.students_address()}}</pre></h3>
+    <h3><pre>{{template_form.submit_form()}}</pre></h3>
 </form>
 {% endblock %}

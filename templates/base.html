@@ -2,7 +2,11 @@
 <html>
   <body>
     <div>
-      <a href="/">Home</a> | <a href="/about">About</a> | <a href="/form">Form</a>
+      {% if current_user.is_authenticated %}
+      <a href="/">Home</a> | <a href="/about">About</a> | <a href="/form">Form</a> | <a href="/delete_students">Delete</a> | <a href="/logout">Logout</a>
+      {% else %}
+      <a href="/">Home</a> | <a href="/about">About</a> | <a href="/login">Login</a>
+      {% endif %}
     </div>
     {% block content %}
     {% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Registration Form</h1>
+<h3>Daftarkan diri anda dengan mengisi form berikut:</h3>
+    <form method="POST">
+    {{template_form.hidden_tag()}}
+    <p>{{template_form.username.label}} {{template_form.username()}}</p>
+    <p>{{template_form.email.label}} {{template_form.email()}}</p>
+    <p>{{template_form.password.label}} {{template_form.password()}}</p>
+    <p>{{template_form.password2.label}} {{template_form.password2()}}</p>
+    <p>{{template_form.submit()}}</p>
+    </form>
+{% endblock %}
