@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="jumbotron">
 <h1>Biodata Siswa</h1>
-<h3><pre>Nama Lengkap  : {{fullname | title}}</pre></h3>
-<h3><pre>Alamat        : {{address | title}}</pre></h3>
-<h3><pre>Jenis Kelamin : {{sex | title}}</pre></h3>
+<h5><pre>Nama Lengkap  : {{fullname | title}}</pre></h5>
+<h5><pre>Alamat        : {{address | title}}</pre></h5>
+<h5><pre>Jenis Kelamin : {{sex | title}}</pre></h5>
+<p></p>
 <h3>Pelanggaran</h3>
+<p></p>
 {% if current_user.is_authenticated %}
 {% if violation %}
 <p>Berikut adalah pelanggaran yang telah dilakukan {{name | title}}:</p>
@@ -15,12 +18,13 @@
 {% else %}
 <p>{{name | title}} belum pernah melakukan pelanggaran.</p>
 {% endif %}
-
+<p></p>
 <h3>Input Pelanggaran</h3>
+<p></p>
     <form method="POST">
     {{template_form.hidden_tag()}}
-    <p>{{template_form.students_violation.label}} : {{template_form.students_violation()}}</p>
-    <p>{{template_form.setudent_add_point.label}} : {{template_form.setudent_add_point()}}</p>
+    <h5><pre>{{template_form.students_violation.label}} 		: {{template_form.students_violation()}}</pre></h5>
+    <h5><pre>{{template_form.setudent_add_point.label}} 	: {{template_form.setudent_add_point()}}</pre></h5>
     <p>{{template_form.submit_form_2()}}</p>
     </form>
 {% else %}
@@ -34,4 +38,5 @@
 <p>{{name | title}} belum pernah melakukan pelanggaran.</p>
 {% endif %}
 {% endif %}
+</div>
 {% endblock %}

@@ -1,14 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="jumbotron">
 <h1>Form Tambah Siswa</h1>
 <form action="/form" method="POST">
     {{template_form.hidden_tag()}}
-    <h3><pre>{{template_form.students_name.label}} : {{template_form.students_name()}}</pre></h3>
-    <h3><pre>{{template_form.students_fullname.label}}   : {{template_form.students_fullname()}}</pre></h3>
-    <tr><h3><pre>Jenis Kelamin  : </pre></h3> {% for btn in template_form.students_gender %} 
+    <h5><pre>{{template_form.students_name.label}} : {{template_form.students_name()}}</pre></h5>
+    <h5><pre>{{template_form.students_fullname.label}}   : {{template_form.students_fullname()}}</pre></h5>
+    <tr><h5><pre>Jenis Kelamin  : </pre></h5> {% for btn in template_form.students_gender %} 
         <pre>                   <td>{{ btn }}</td> <td>{{ btn.label }}</td></pre>
         {% endfor %}</tr>
-    <h3><pre>{{template_form.students_address.label}}        : {{template_form.students_address()}}</pre></h3>
-    <h3><pre>{{template_form.submit_form()}}</pre></h3>
+    <h5><pre>{{template_form.students_address.label}}        : {{template_form.students_address()}}</pre></h5>
+    <h5><pre>{{template_form.submit_form()}}</pre></h5>
 </form>
+</div>
 {% endblock %}

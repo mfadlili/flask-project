@@ -149,3 +149,11 @@ def logout():
     logout_user()
     flash('You are logged out.')
     return redirect(url_for('home'))
+
+@app.errorhandler(404)
+def error_404(error):
+    return render_template('error.html'), 404
+
+@app.errorhandler(AttributeError)
+def error(error):
+    return render_template('error.html')

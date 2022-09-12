@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="jumbotron">
 <h1>Login Form</h1>
 <h3>Masukkan Username dan Password ke dalam form berikut:</h3>
     <form method="POST">
     {{template_form.hidden_tag()}}
-    <p>{{template_form.username.label}} {{template_form.username()}}</p>
-    <p>{{template_form.password.label}} {{template_form.password()}}</p>
+    <h5><pre>{{template_form.username.label}} {{template_form.username()}}</pre></h5>
+    <h5><pre>{{template_form.password.label}} {{template_form.password()}}</pre></h5>
     <p>{{template_form.submit()}}</p>
     </form>
+</div>
 {% endblock %}

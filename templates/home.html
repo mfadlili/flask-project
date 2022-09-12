@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="jumbotron">
 <h1>Kelas 9A</h1>
 <p>Berikut adalah nama-nama siswa kelas 9A:</p>
     <ol>{% for id, nama in list_nama.items()%}
         <p><li><a href="/{{id}}">{{nama | title}}</a></li></p>
     {% endfor %}</ol>
+</div>
 {% endblock %}
